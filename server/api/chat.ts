@@ -30,6 +30,16 @@ export default defineLazyEventHandler(async () => {
             return { location, temperature }
           },
         }),
+        getRepositoryByOrgAndName: tool({
+          description: 'Retrieve information about a specific Github repository by its organisation and name',
+          inputSchema: z.object({
+            org: z.string().describe('The github organisation or user that has the repo'),
+            name: z.string().describe('The name of the repository'),
+          }),
+          execute: ({ org, name }) => {
+            return $fetch(`https://api.github.com/repos/${org}/${name}`)
+          },
+        }),
       },
     })
 

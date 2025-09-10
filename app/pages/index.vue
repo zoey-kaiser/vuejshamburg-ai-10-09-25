@@ -14,7 +14,10 @@ function handleSubmit(e: Event) {
 
 <template>
   <div>
-    <div v-for="(m, index) in chat.messages" :key="m.id ? m.id : index">
+    <div
+      v-for="(m, index) in chat.messages"
+      :key="m.id ? m.id : index"
+    >
       {{ m.role === "user" ? "User: " : "AI: " }}
       <div
         v-for="(part, partIndex) in m.parts"
@@ -23,6 +26,7 @@ function handleSubmit(e: Event) {
         <div v-if="part.type === 'text'">
           {{ part.text }}
         </div>
+        <pre>{{ part }}</pre>
       </div>
     </div>
 
