@@ -1,7 +1,7 @@
 import type { UIMessage } from 'ai'
 import { createOpenAI } from '@ai-sdk/openai'
-import { convertToModelMessages, stepCountIs, streamText } from 'ai'
-import { getWeatherByLocation } from '../tools'
+import { convertToModelMessages, stepCountIs, streamText, tool } from 'ai'
+import { z } from 'zod'
 
 export default defineLazyEventHandler(async () => {
   const apiKey = useRuntimeConfig().openaiApiKey
@@ -20,7 +20,16 @@ export default defineLazyEventHandler(async () => {
       stopWhen: stepCountIs(5),
       temperature: 0,
       tools: {
-        [getWeatherByLocation.name]: getWeatherByLocation.tool,
+        getWeatherByLocation: tool({
+          description: 'Get the weather in a location (celsius)',
+          inputSchema: z.object({
+            location: z.string().describe('The location to get the weather for'),
+          }),
+          execute: async ({ location }) => {
+            const temperature = Math.round(Math.random() * (40 - 0) + 0)
+            return { location, temperature }
+          },
+        }),
       },
     })
 
