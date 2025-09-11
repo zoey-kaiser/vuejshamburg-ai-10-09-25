@@ -1,6 +1,10 @@
 # Nuxt + AI: Giving Your Nuxt App a Voice (and Superpowers)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+What if your Nuxt app could talk? Imagine an app that doesn’t just wait for clicks — it chats, understands your data, and even takes action. In this talk, we’ll explore why AI makes sense in your app, when it’s worth adding, and how to set it up without losing your mind. You’ll learn how to connect your app to its own data quickly and easily, turning a regular Nuxt app into one with a voice — and superpowers.
+
+You can view the slides [here](https://zoeykaiser.com/talks/nuxt-and-ai-slides-25.pdf).
+
+> Talk held on the 10.09.2025 @ [VueJS Hamburg](https://www.meetup.com/de-DE/hamburg-vue-js-meetup/)
 
 ## Setup
 
